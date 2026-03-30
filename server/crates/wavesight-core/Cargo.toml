@@ -1,0 +1,14 @@
+[package]
+name = "wavesight-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Shared types and error definitions for the WaveSight server."
+
+[dependencies]
+serde.workspace = true
+thiserror.workspace = true
