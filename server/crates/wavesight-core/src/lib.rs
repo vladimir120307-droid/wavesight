@@ -5,5 +5,5 @@
 mod frame;
 mod node;
 
-pub use frame::SubcarrierCount;
+pub use frame::{CsiFrame, FrameMetadata, SubcarrierCount};
 pub use node::{NodeId, NodeKind};

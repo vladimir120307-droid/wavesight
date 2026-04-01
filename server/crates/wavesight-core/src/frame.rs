@@ -1,6 +1,9 @@
 //! Frame types — raw CSI and post-DSP representations.
 
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+
+use crate::node::NodeId;
 
 /// Number of subcarriers in a CSI capture.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -24,4 +27,30 @@ impl SubcarrierCount {
             Self::Ht40Wide => 256,
         }
     }
+}
+
+/// Per-frame metadata shared between raw and DSP frames.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct FrameMetadata {
+    /// Originating node.
+    pub node: NodeId,
+    /// PTP-synchronised capture timestamp.
+    pub captured_at: DateTime<Utc>,
+    /// Sequence number monotonically increasing per node.
+    pub sequence: u64,
+    /// WiFi channel and bandwidth descriptor.
+    pub channel: u8,
+    /// Subcarrier layout for this frame.
+    pub subcarriers: SubcarrierCount,
+    /// Received signal strength in dBm.
+    pub rssi_dbm: i8,
+}
+
+/// Raw CSI frame as received from a node.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CsiFrame {
+    /// Metadata header.
+    pub metadata: FrameMetadata,
+    /// Complex amplitude per subcarrier (interleaved I,Q as i8 pairs).
+    pub samples: Vec<i8>,
 }
