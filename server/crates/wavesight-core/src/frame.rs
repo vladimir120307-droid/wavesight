@@ -6,6 +6,9 @@ use serde::{Deserialize, Serialize};
 use crate::node::NodeId;
 
 /// Number of subcarriers in a CSI capture.
+///
+/// HT20 captures use 64 subcarriers; HT40 uses 128 or 256 depending on
+/// chipset. See the firmware docs for the exact mapping.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum SubcarrierCount {
@@ -53,4 +56,17 @@ pub struct CsiFrame {
     pub metadata: FrameMetadata,
     /// Complex amplitude per subcarrier (interleaved I,Q as i8 pairs).
     pub samples: Vec<i8>,
+}
+
+/// Post-DSP representation: amplitude, phase, doppler per subcarrier.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DspFrame {
+    /// Metadata header.
+    pub metadata: FrameMetadata,
+    /// Amplitude per subcarrier, normalized to [0, 1].
+    pub amplitude: Vec<f32>,
+    /// Unwrapped phase per subcarrier in radians.
+    pub phase: Vec<f32>,
+    /// Estimated radial Doppler per subcarrier in metres / second.
+    pub doppler: Vec<f32>,
 }
