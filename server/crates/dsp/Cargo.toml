@@ -1,0 +1,16 @@
+[package]
+name = "dsp"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Signal-processing pipeline (FFT, calibration, Doppler) for CSI."
+
+[dependencies]
+wavesight-core = { path = "../wavesight-core" }
+serde.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
