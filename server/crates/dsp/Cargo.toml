@@ -11,6 +11,17 @@ description = "Signal-processing pipeline (FFT, calibration, Doppler) for CSI."
 
 [dependencies]
 wavesight-core = { path = "../wavesight-core" }
+ndarray.workspace = true
+rustfft.workspace = true
+num-complex.workspace = true
 serde.workspace = true
-thiserror.workspace = true
 tracing.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+criterion.workspace = true
+
+[[bench]]
+name = "dsp_bench"
+harness = false
