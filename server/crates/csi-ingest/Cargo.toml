@@ -12,6 +12,12 @@ description = "WebSocket / gRPC ingestion of CSI frames from sensing nodes."
 [dependencies]
 wavesight-core = { path = "../wavesight-core" }
 tokio.workspace = true
+axum.workspace = true
 serde.workspace = true
+serde_json.workspace = true
 tracing.workspace = true
 anyhow.workspace = true
+thiserror.workspace = true
+bytes.workspace = true
+chacha20poly1305.workspace = true
+chrono.workspace = true
