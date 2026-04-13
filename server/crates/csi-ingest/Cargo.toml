@@ -1,0 +1,17 @@
+[package]
+name = "csi-ingest"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "WebSocket / gRPC ingestion of CSI frames from sensing nodes."
+
+[dependencies]
+wavesight-core = { path = "../wavesight-core" }
+tokio.workspace = true
+serde.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
