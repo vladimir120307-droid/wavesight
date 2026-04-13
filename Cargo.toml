@@ -3,6 +3,7 @@ resolver = "2"
 members = [
     "server/crates/wavesight-core",
     "server/crates/dsp",
+    "server/crates/csi-ingest",
 ]
 
 [workspace.package]
