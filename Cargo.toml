@@ -4,6 +4,7 @@ members = [
     "server/crates/wavesight-core",
     "server/crates/dsp",
     "server/crates/csi-ingest",
+    "server/crates/fusion",
 ]
 
 [workspace.package]

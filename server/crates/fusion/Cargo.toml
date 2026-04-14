@@ -1,0 +1,17 @@
+[package]
+name = "fusion"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Multi-node + multi-modal sensor fusion (EKF)."
+
+[dependencies]
+wavesight-core = { path = "../wavesight-core" }
+dsp = { path = "../dsp" }
+ndarray.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
