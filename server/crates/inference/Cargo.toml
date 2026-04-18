@@ -11,6 +11,9 @@ description = "On-edge ML inference for presence, pose, vitals, fall, sleep."
 
 [dependencies]
 wavesight-core = { path = "../wavesight-core" }
+candle-core.workspace = true
+candle-nn.workspace = true
+safetensors.workspace = true
 serde.workspace = true
 tracing.workspace = true
 thiserror.workspace = true
