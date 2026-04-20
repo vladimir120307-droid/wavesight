@@ -6,6 +6,7 @@ members = [
     "server/crates/csi-ingest",
     "server/crates/fusion",
     "server/crates/inference",
+    "server/crates/storage",
 ]
 
 [workspace.package]
