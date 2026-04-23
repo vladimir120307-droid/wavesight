@@ -1,0 +1,25 @@
+[package]
+name = "cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "wavesight command-line interface."
+
+[[bin]]
+name = "wavesight"
+path = "src/main.rs"
+
+[dependencies]
+wavesight-core = { path = "../wavesight-core" }
+csi-ingest = { path = "../csi-ingest" }
+api = { path = "../api" }
+storage = { path = "../storage" }
+clap.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+anyhow.workspace = true

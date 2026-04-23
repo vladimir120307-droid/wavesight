@@ -8,6 +8,7 @@ members = [
     "server/crates/inference",
     "server/crates/storage",
     "server/crates/api",
+    "server/crates/cli",
 ]
 
 [workspace.package]
