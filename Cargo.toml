@@ -2,8 +2,8 @@
 resolver = "2"
 members = [
     "server/crates/wavesight-core",
-    "server/crates/dsp",
     "server/crates/csi-ingest",
+    "server/crates/dsp",
     "server/crates/fusion",
     "server/crates/inference",
     "server/crates/storage",
@@ -22,33 +22,56 @@ readme = "../../../README.md"
 version = "0.1.0-alpha.1"
 
 [workspace.dependencies]
+# Async runtime + HTTP
 tokio = { version = "1.39", features = ["full"] }
 axum = { version = "0.7", features = ["ws", "macros"] }
 tower = "0.5"
 tower-http = { version = "0.5", features = ["cors", "trace", "fs"] }
 hyper = { version = "1.4" }
+
+# gRPC
 tonic = "0.12"
 prost = "0.13"
+
+# Serialization
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 bytes = "1"
+
+# Logging / tracing
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# Errors
 anyhow = "1"
 thiserror = "1"
+
+# DSP + math
 ndarray = { version = "0.16", features = ["serde"] }
 rustfft = "6"
 num-complex = "0.4"
+
+# ML inference
 candle-core = "0.6"
 candle-nn = "0.6"
 candle-transformers = "0.6"
 safetensors = "0.4"
+
+# Crypto
 chacha20poly1305 = "0.10"
+
+# Storage
 rusqlite = { version = "0.32", features = ["bundled"] }
 parquet = "53"
 arrow = "53"
+
+# CLI
 clap = { version = "4.5", features = ["derive", "env"] }
+
+# Time
 chrono = { version = "0.4", features = ["serde"] }
+
+# Testing
 proptest = "1"
 criterion = "0.5"
 
