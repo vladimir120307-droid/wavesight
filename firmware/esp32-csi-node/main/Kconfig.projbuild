@@ -1,0 +1,47 @@
+menu "WaveSight node"
+
+config WAVESIGHT_NODE_NAME
+    string "Node identifier"
+    default "node-1"
+    help
+        Unique identifier reported to the edge server.
+        Must match the node provisioned on the server side.
+
+config WAVESIGHT_WIFI_SSID
+    string "Home WiFi SSID"
+    default "MyWiFi"
+    help
+        SSID of the WiFi network the node should join.
+        The CSI tap observes traffic on this network.
+
+config WAVESIGHT_WIFI_PASSWORD
+    string "Home WiFi password"
+    default ""
+    help
+        WPA2 / WPA3 passphrase. Leave empty for open networks.
+
+config WAVESIGHT_SERVER_URI
+    string "WaveSight server URI"
+    default "ws://192.168.1.10:8080/ingest"
+    help
+        WebSocket endpoint of the WaveSight edge server.
+        Use wss:// for TLS once the server has a certificate.
+
+config WAVESIGHT_CSI_QUEUE_LEN
+    int "CSI queue length (frames)"
+    range 16 1024
+    default 128
+    help
+        Number of CSI frames buffered between the WiFi callback
+        and the uploader task. Drops oldest on overflow.
+
+config WAVESIGHT_BATCH_SIZE
+    int "Frames per WebSocket message"
+    range 1 64
+    default 8
+    help
+        How many CSI frames are batched into a single JSON
+        message sent to the server. Larger reduces overhead
+        but increases per-message latency.
+
+endmenu
