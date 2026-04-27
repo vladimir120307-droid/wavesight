@@ -11,5 +11,12 @@ description = "Shared types and error definitions for the WaveSight server."
 
 [dependencies]
 serde.workspace = true
+serde_json.workspace = true
 thiserror.workspace = true
 chrono.workspace = true
+ndarray.workspace = true
+num-complex.workspace = true
+bytes.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
