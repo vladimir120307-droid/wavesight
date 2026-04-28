@@ -7,10 +7,12 @@ license.workspace = true
 authors.workspace = true
 repository.workspace = true
 homepage.workspace = true
-description = "REST / WebSocket / gRPC API surface for the WaveSight server."
+description = "REST / WebSocket API surface for the WaveSight server."
 
 [dependencies]
 wavesight-core = { path = "../wavesight-core" }
+csi-ingest = { path = "../csi-ingest" }
+dsp = { path = "../dsp" }
 inference = { path = "../inference" }
 fusion = { path = "../fusion" }
 storage = { path = "../storage" }
@@ -19,8 +21,8 @@ axum.workspace = true
 tower.workspace = true
 tower-http.workspace = true
 hyper.workspace = true
-tonic.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 tracing.workspace = true
 anyhow.workspace = true
+futures-util = "0.3"
