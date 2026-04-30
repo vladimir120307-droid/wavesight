@@ -1,0 +1,40 @@
+name: web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dashboard/**"
+      - ".github/workflows/web.yml"
+  pull_request:
+    paths:
+      - "dashboard/**"
+      - ".github/workflows/web.yml"
+
+jobs:
+  lint-and-build:
+    name: lint + build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - name: pnpm install
+        run: pnpm install --frozen-lockfile
+        working-directory: dashboard
+      - name: lint
+        run: pnpm lint
+        working-directory: dashboard
+      - name: typecheck
+        run: pnpm typecheck
+        working-directory: dashboard
+      - name: build
+        run: pnpm build
+        working-directory: dashboard
+      - name: test
+        run: pnpm test --run
+        working-directory: dashboard
