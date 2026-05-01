@@ -4,36 +4,23 @@
 
 #![forbid(unsafe_code)]
 #![warn(clippy::pedantic)]
+#![allow(clippy::module_name_repetitions)]
 
-use serde::{Deserialize, Serialize};
-use wavesight_core::{ConfidenceInterval, FusedScene, Result, Uncertainty};
+mod fall;
+mod pose;
+mod presence;
+mod registry;
+mod sleep;
+mod vitals;
 
-/// Output of the presence head.
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct PresencePrediction {
-    /// Posterior probability that a human is present.
-    pub probability: f32,
-    /// Credible interval on the probability.
-    pub interval: ConfidenceInterval,
-    /// Epistemic uncertainty.
-    pub uncertainty: Uncertainty,
-}
+pub use fall::{FallEvent, FallHead, FallSeverity};
+pub use pose::{Keypoint, PoseHead, PosePrediction};
+pub use presence::{PresenceHead, PresencePrediction};
+pub use registry::{ModelRef, ModelRegistry};
+pub use sleep::{SleepHead, SleepPrediction, SleepStage};
+pub use vitals::{VitalsHead, VitalsPrediction};
 
-/// Output of the vitals head.
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct VitalsPrediction {
-    /// Estimated heart-rate in beats per minute, or `None` when uncertain.
-    pub hr_bpm: Option<f32>,
-    /// Credible interval on `hr_bpm` (always populated even when `hr_bpm`
-    /// is `None`, so the UI can show the band).
-    pub hr_interval: ConfidenceInterval,
-    /// Estimated breathing rate in breaths per minute, or `None` when uncertain.
-    pub br_bpm: Option<f32>,
-    /// Credible interval on `br_bpm`.
-    pub br_interval: ConfidenceInterval,
-    /// Epistemic uncertainty.
-    pub uncertainty: Uncertainty,
-}
+use wavesight_core::{FusedScene, Result};
 
 /// Trait every inference head implements.
 pub trait Head {
@@ -45,24 +32,4 @@ pub trait Head {
     /// # Errors
     /// Implementation-specific.
     fn predict(&mut self, scene: &FusedScene) -> Result<Self::Output>;
-}
-
-/// Stub presence head — replaced with a Candle-loaded model in M2.
-pub struct PresenceHead;
-
-impl Head for PresenceHead {
-    type Output = PresencePrediction;
-
-    fn predict(&mut self, scene: &FusedScene) -> Result<Self::Output> {
-        let prob = if scene.entities.is_empty() { 0.0 } else { 1.0 };
-        Ok(PresencePrediction {
-            probability: prob,
-            interval: ConfidenceInterval {
-                low: prob,
-                high: prob,
-                level: 0.9,
-            },
-            uncertainty: Uncertainty(0.5),
-        })
-    }
 }
