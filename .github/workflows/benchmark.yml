@@ -1,0 +1,25 @@
+name: benchmark
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - "server/**"
+      - "eval/**"
+
+jobs:
+  dsp-bench:
+    name: dsp criterion bench
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: run benches
+        run: cargo bench -p dsp -- --output-format bencher | tee bench.txt
+      - name: upload bench output
+        uses: actions/upload-artifact@v4
+        with:
+          name: dsp-bench-${{ github.sha }}
+          path: bench.txt
