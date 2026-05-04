@@ -1,0 +1,32 @@
+version: 2
+updates:
+  - package-ecosystem: cargo
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      patch:
+        update-types: [patch]
+      minor:
+        update-types: [minor]
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: npm
+    directory: "/dashboard"
+    schedule:
+      interval: weekly
+    groups:
+      patch:
+        update-types: [patch]
+      minor:
+        update-types: [minor]
+
+  - package-ecosystem: pip
+    directory: "/training"
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
