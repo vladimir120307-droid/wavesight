@@ -1,0 +1,31 @@
+# Scenario: walk past a single ESP32-S3 node, line-of-sight, 3 m range.
+# Targets: presence precision/recall, motion onset latency.
+
+id: walk-past-single-node
+title:
+  en: "Walk past a single ESP32-S3, line-of-sight, 3 m"
+  ru: "Проход мимо одной ESP32-S3, прямая видимость, 3 м"
+
+hardware:
+  nodes:
+    - { kind: esp32-s3, position: [0.0, 0.0, 1.2] }
+  ap: existing-home-wifi
+  ground_truth:
+    rgb_d_camera: realsense-d435
+    imu: none
+
+protocol:
+  duration_s: 300
+  events:
+    - { at_s: 30,  type: human_enter, from: [3.0, -2.0], to: [3.0, 2.0] }
+    - { at_s: 120, type: human_exit }
+    - { at_s: 200, type: human_enter, from: [3.0, 2.0],  to: [3.0, -2.0] }
+
+targets:
+  presence_precision: { min: 0.92, target: 0.97 }
+  presence_recall:    { min: 0.85, target: 0.95 }
+  onset_latency_ms:   { max:  500, target:  200 }
+
+honest_caveats:
+  - "Single node — no triangulation; spatial position is not estimated."
+  - "Line-of-sight only; through-wall variant is a separate scenario."
