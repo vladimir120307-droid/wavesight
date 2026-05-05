@@ -1,0 +1,12 @@
+{
+  "domain": "wavesight",
+  "name": "WaveSight",
+  "version": "0.1.0",
+  "documentation": "https://github.com/vladimir120307-droid/wavesight",
+  "issue_tracker": "https://github.com/vladimir120307-droid/wavesight/issues",
+  "codeowners": ["@vladimir120307-droid"],
+  "iot_class": "local_polling",
+  "config_flow": true,
+  "requirements": ["aiohttp>=3.9"],
+  "dependencies": []
+}
