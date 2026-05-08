@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a bug in firmware, server, dashboard, mobile or docs
+title: "[bug] "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. The more reproducible the report, the faster we can fix it.
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      placeholder: firmware / server / dashboard / mobile / docs
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: v0.1.0-alpha.1 or commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Flash node-1 with ...
+        2. Run `wavesight serve`
+        3. Walk past node-1
+        4. ...
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      placeholder: |
+        - OS: Ubuntu 24.04 / Windows 11 / macOS 14.5
+        - Rust: 1.78
+        - Node: 20.10
+        - ESP-IDF: 5.2.2
+        - Hardware: 2 × ESP32-S3-DevKitC-1
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      render: shell
