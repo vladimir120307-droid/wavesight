@@ -1,0 +1,26 @@
+# EldGuard reference deployment config. Copy and adapt.
+
+[server]
+url = "http://wavesight.local:8081"
+poll_interval_ms = 250
+
+[rooms]
+node-1 = "bathroom"
+node-2 = "bedroom"
+node-3 = "hallway"
+
+[thresholds]
+# Minimum severity that triggers a notification. One of: soft, hard, unresponsive.
+notify_at = "hard"
+# Time after a hard fall before we escalate from "hard" to "unresponsive".
+unresponsive_after_seconds = 30
+# Quiet hours during which only "unresponsive" escalations notify.
+quiet_hours = { start = "22:00", end = "07:00" }
+
+[notify.telegram]
+chat_ids = []                                  # add Telegram chat IDs here
+message_template_en = "WaveSight fall alert in {room}. Severity: {severity}. Time: {timestamp}."
+message_template_ru = "Падение в {room}. Серьёзность: {severity}. Время: {timestamp}."
+
+[notify.mobile_push]
+recipient_user_ids = []                        # add WaveSight mobile-app user IDs
