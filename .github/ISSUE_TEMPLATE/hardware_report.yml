@@ -1,0 +1,29 @@
+name: Hardware compatibility report
+description: Report a board, NIC, or UWB module that you tested with WaveSight
+title: "[hardware] "
+labels: [hardware]
+body:
+  - type: input
+    id: board
+    attributes:
+      label: Board / NIC / module
+      placeholder: ESP32-C5 ESPRESSIF DevKit / Intel AX210 / DWM3000EVB
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Firmware build
+      placeholder: commit SHA or release tag
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What worked, what didn't?
+    validations:
+      required: true
+  - type: textarea
+    id: photos
+    attributes:
+      label: Photos (drag & drop or link)
