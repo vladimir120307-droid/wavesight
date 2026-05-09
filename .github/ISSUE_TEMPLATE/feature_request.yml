@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest a new feature or enhancement
+title: "[feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the use case, not the implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: vertical
+    attributes:
+      label: Related vertical
+      options:
+        - core platform
+        - EldGuard (fall detection)
+        - SleepWave (sleep)
+        - PresenceOS (smart-home)
+        - other
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: I have searched existing issues for duplicates.
+          required: true
