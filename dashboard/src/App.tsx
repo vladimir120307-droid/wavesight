@@ -1,11 +1,17 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { NodeCard } from "./components/NodeCard";
+import { SettingsPanel } from "./components/SettingsPanel";
+import { t } from "./lib/i18n";
+import { useSettings } from "./lib/settings";
 import { useDashboard } from "./lib/state";
 import { StreamClient } from "./lib/stream";
 
 export default function App() {
   const ingest = useDashboard((s) => s.ingest);
   const nodes = useDashboard((s) => s.nodes);
+  const locale = useSettings((s) => s.locale);
+  const tr = t(locale);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   useEffect(() => {
     const host = window.location.host || "localhost:8081";
@@ -27,34 +33,34 @@ export default function App() {
     <div className="max-w-6xl mx-auto px-6 py-8 space-y-6">
       <header className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">WaveSight</h1>
-          <p className="text-sm text-zinc-400">
-            Live CSI · {connectedCount} node{connectedCount === 1 ? "" : "s"}{" "}
-            connected
-          </p>
+          <h1 className="text-2xl font-bold tracking-tight">{tr.appTitle}</h1>
+          <p className="text-sm text-zinc-400">{tr.liveCsi(connectedCount)}</p>
         </div>
-        <a
-          className="text-xs text-zinc-500 hover:text-zinc-300"
-          href="https://github.com/vladimir120307-droid/wavesight"
-          target="_blank"
-          rel="noreferrer"
-        >
-          github ↗
-        </a>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setSettingsOpen(true)}
+            className="text-xs text-zinc-500 hover:text-zinc-300"
+          >
+            {tr.settings}
+          </button>
+          <a
+            className="text-xs text-zinc-500 hover:text-zinc-300"
+            href="https://github.com/vladimir120307-droid/wavesight"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {tr.github}
+          </a>
+        </div>
       </header>
 
       {nodeList.length === 0 ? (
         <div className="panel text-zinc-400">
-          <p className="font-medium">No nodes streaming yet.</p>
+          <p className="font-medium">{tr.emptyTitle}</p>
           <ol className="list-decimal list-inside text-sm mt-2 space-y-1">
-            <li>
-              Flash <code>firmware/esp32-csi-node</code> on an ESP32-S3.
-            </li>
-            <li>
-              Set <code>WAVESIGHT_SERVER_URI</code> to{" "}
-              <code>ws://&lt;this-machine&gt;:8080/ingest</code>.
-            </li>
-            <li>Power the board and refresh this page.</li>
+            {tr.emptySteps.map((step, i) => (
+              <li key={i}>{step}</li>
+            ))}
           </ol>
         </div>
       ) : (
@@ -65,14 +71,15 @@ export default function App() {
               node={n.node}
               lastUpdate={n.lastUpdate}
               history={n.history}
+              locale={locale}
             />
           ))}
         </div>
       )}
 
-      <footer className="text-xs text-zinc-500 pt-6">
-        WaveSight alpha · honest mode on · local-first
-      </footer>
+      <footer className="text-xs text-zinc-500 pt-6">{tr.footer}</footer>
+
+      {settingsOpen && <SettingsPanel onClose={() => setSettingsOpen(false)} />}
     </div>
   );
 }
