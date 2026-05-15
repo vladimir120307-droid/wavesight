@@ -1,6 +1,6 @@
 # Contributing to WaveSight
 
-_English В· [Р СѓСЃСЃРєРёР№](#РІРєР»Р°Рґ-РїРѕ-СЂСѓСЃСЃРєРё)_
+_English · [Русский](#вклад-по-русски)_
 
 Thanks for considering a contribution. WaveSight is built in the open and we want the contribution process to feel approachable. This document covers how to get started, what we expect, and how we review changes.
 
@@ -10,8 +10,8 @@ There is a lot more useful work than the obvious "write code":
 
 - **Capture data**: record CSI scenes with consent and contribute them to the public dataset.
 - **Run benchmarks**: run `wavesight bench` on your hardware and report numbers in Discussions.
-- **Translate documentation**: EN в†” RU parity is a hard requirement, but third languages are very welcome.
-- **Write a tutorial**: blog post, YouTube video, conference talk вЂ” open a PR linking to it from `docs/community.md`.
+- **Translate documentation**: EN ↔ RU parity is a hard requirement, but third languages are very welcome.
+- **Write a tutorial**: blog post, YouTube video, conference talk — open a PR linking to it from `docs/community.md`.
 - **Test on hardware** we don't have: ESP32-C5/C6, exotic NICs, OpenWrt routers.
 - **File good bug reports**: a clear, reproducible bug is worth more than a vague feature request.
 - **Improve the UI**: dashboard polish, mobile app screens.
@@ -101,7 +101,7 @@ If you are donating time on hardware we don't own:
 ## Review expectations
 
 - We aim for first review within **7 days**.
-- We will say "no" politely if your change conflicts with the roadmap вЂ” and we'll explain why.
+- We will say "no" politely if your change conflicts with the roadmap — and we'll explain why.
 - Trivial typo fixes get fast-tracked.
 
 ## Code of conduct
@@ -110,33 +110,33 @@ By participating, you agree to our [Code of Conduct](CODE_OF_CONDUCT.md). Be kin
 
 ---
 
-<a id="РІРєР»Р°Рґ-РїРѕ-СЂСѓСЃСЃРєРё"></a>
+<a id="вклад-по-русски"></a>
 
-# Р’РєР»Р°Рґ РІ WaveSight (РїРѕ-СЂСѓСЃСЃРєРё)
+# Вклад в WaveSight (по-русски)
 
-РЎРїР°СЃРёР±Рѕ, С‡С‚Рѕ СЂР°СЃСЃРјР°С‚СЂРёРІР°РµС‚Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РєРѕРЅС‚СЂРёР±СЊСЋС†РёРё. WaveSight СЂР°Р·СЂР°Р±Р°С‚С‹РІР°РµС‚СЃСЏ РІ РѕС‚РєСЂС‹С‚РѕРј СЂРµР¶РёРјРµ, Рё РјС‹ С…РѕС‚РёРј, С‡С‚РѕР±С‹ РїСЂРѕС†РµСЃСЃ Р±С‹Р» РґСЂСѓР¶РµР»СЋР±РЅС‹Рј.
+Спасибо, что рассматриваете возможность контрибьюции. WaveSight разрабатывается в открытом режиме, и мы хотим, чтобы процесс был дружелюбным.
 
-## РЎРїРѕСЃРѕР±С‹ РїРѕРјРѕС‡СЊ
+## Способы помочь
 
-РџРѕР»РµР·РЅРѕ РЅРµ С‚РѕР»СЊРєРѕ РїРёСЃР°С‚СЊ РєРѕРґ:
+Полезно не только писать код:
 
-- **РЎР±РѕСЂ РґР°РЅРЅС‹С…**: Р·Р°РїРёС€РёС‚Рµ CSI-СЃС†РµРЅС‹ СЃ СЃРѕРіР»Р°СЃРёРµРј СѓС‡Р°СЃС‚РЅРёРєРѕРІ Рё РґРѕР±Р°РІСЊС‚Рµ РІ РїСѓР±Р»РёС‡РЅС‹Р№ РґР°С‚Р°СЃРµС‚.
-- **Р—Р°РїСѓСЃРє Р±РµРЅС‡РјР°СЂРєРѕРІ**: Р·Р°РїСѓСЃС‚РёС‚Рµ `wavesight bench` РЅР° СЃРІРѕС‘Рј Р¶РµР»РµР·Рµ Рё РѕРїСѓР±Р»РёРєСѓР№С‚Рµ С†РёС„СЂС‹ РІ Discussions.
-- **РџРµСЂРµРІРѕРґ РґРѕРєСѓРјРµРЅС‚Р°С†РёРё**: РїР°СЂРЅРѕСЃС‚СЊ EN в†” RU вЂ” РЅР°С€Рµ С‚СЂРµР±РѕРІР°РЅРёРµ, РЅРѕ РїРµСЂРµРІРѕРґС‹ РЅР° С‚СЂРµС‚СЊРё СЏР·С‹РєРё С‚РѕР¶Рµ РїСЂРёРІРµС‚СЃС‚РІСѓСЋС‚СЃСЏ.
-- **РўСѓС‚РѕСЂРёР°Р»С‹**: Р±Р»РѕРі, YouTube, РєРѕРЅС„РµСЂРµРЅС†РёСЏ вЂ” РѕС‚РєСЂРѕР№С‚Рµ PR СЃРѕ СЃСЃС‹Р»РєРѕР№ РІ `docs/community.md`.
-- **РўРµСЃС‚С‹ РЅР° Р¶РµР»РµР·Рµ**, РєРѕС‚РѕСЂРѕРіРѕ Сѓ РЅР°СЃ РЅРµС‚: ESP32-C5/C6, СЌРєР·РѕС‚РёС‡РµСЃРєРёРµ NIC, OpenWrt-СЂРѕСѓС‚РµСЂС‹.
-- **РҐРѕСЂРѕС€РёРµ Р±Р°Рі-СЂРµРїРѕСЂС‚С‹**: РІРѕСЃРїСЂРѕРёР·РІРѕРґРёРјС‹Р№ Р±Р°Рі С†РµРЅРЅРµРµ СЂР°Р·РјС‹С‚РѕРіРѕ feature request.
-- **РџРѕР»РёСЂРѕРІРєР° UI**: РґР°С€Р±РѕСЂРґ, РјРѕР±РёР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ.
-- **РќР°РїРёСЃР°РЅРёРµ С‚РµСЃС‚РѕРІ**: РєР°Р¶РґС‹Р№ crate РёРјРµРµС‚ property-based Рё РёРЅС‚РµРіСЂР°С†РёРѕРЅРЅС‹Рµ С‚РµСЃС‚С‹.
+- **Сбор данных**: запишите CSI-сцены с согласием участников и добавьте в публичный датасет.
+- **Запуск бенчмарков**: запустите `wavesight bench` на своём железе и опубликуйте цифры в Discussions.
+- **Перевод документации**: парность EN ↔ RU — наше требование, но переводы на третьи языки тоже приветствуются.
+- **Туториалы**: блог, YouTube, конференция — откройте PR со ссылкой в `docs/community.md`.
+- **Тесты на железе**, которого у нас нет: ESP32-C5/C6, экзотические NIC, OpenWrt-роутеры.
+- **Хорошие баг-репорты**: воспроизводимый баг ценнее размытого feature request.
+- **Полировка UI**: дашборд, мобильное приложение.
+- **Написание тестов**: каждый crate имеет property-based и интеграционные тесты.
 
-## РљРѕРЅС‚СЂРёР±СЊСЋС†РёСЏ РєРѕРґР°
+## Контрибьюция кода
 
-### 1. РќР°Р№С‚Рё issue РёР»Рё РѕС‚РєСЂС‹С‚СЊ РЅРѕРІРѕРµ
+### 1. Найти issue или открыть новое
 
-- РС‰РёС‚Рµ Р»РµР№Р±Р»С‹: `good-first-issue`, `help-wanted`, `bug`, `enhancement`, `hardware`.
-- Р”Р»СЏ РЅРµС‚СЂРёРІРёР°Р»СЊРЅС‹С… РёР·РјРµРЅРµРЅРёР№: СЃРЅР°С‡Р°Р»Р° РѕС‚РєСЂРѕР№С‚Рµ issue Рё РѕРїРёС€РёС‚Рµ РїРѕРґС…РѕРґ.
+- Ищите лейблы: `good-first-issue`, `help-wanted`, `bug`, `enhancement`, `hardware`.
+- Для нетривиальных изменений: сначала откройте issue и опишите подход.
 
-### 2. РќР°СЃС‚СЂРѕР№РєР° РѕРєСЂСѓР¶РµРЅРёСЏ
+### 2. Настройка окружения
 
 ```bash
 git clone https://github.com/vladimir120307-droid/wavesight.git
@@ -154,13 +154,13 @@ pip install -e training[dev]
 pip install pre-commit && pre-commit install
 ```
 
-### 3. Р’РµС‚РєРё Рё РєРѕРјРјРёС‚С‹
+### 3. Ветки и коммиты
 
-- РРјСЏ РІРµС‚РєРё: `topic/РєРѕСЂРѕС‚РєРѕРµ-РѕРїРёСЃР°РЅРёРµ` РёР»Рё `fix/issue-123`.
-- РљРѕРјРјРёС‚-РјРµСЃСЃРµРґР¶Рё: conventional commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`).
-- РљР°Р¶РґС‹Р№ РєРѕРјРјРёС‚ РґРѕР»Р¶РµРЅ РєРѕРјРїРёР»РёСЂРѕРІР°С‚СЊСЃСЏ Рё РїСЂРѕС…РѕРґРёС‚СЊ С‚РµСЃС‚С‹.
+- Имя ветки: `topic/короткое-описание` или `fix/issue-123`.
+- Коммит-месседжи: conventional commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`).
+- Каждый коммит должен компилироваться и проходить тесты.
 
-### 4. Р›РѕРєР°Р»СЊРЅС‹Рµ РїСЂРѕРІРµСЂРєРё
+### 4. Локальные проверки
 
 ```bash
 cargo fmt --check
@@ -174,27 +174,27 @@ ruff check training
 pytest training
 ```
 
-### 5. РћС‚РєСЂС‹С‚РёРµ PR
+### 5. Открытие PR
 
-- Р—Р°РїРѕР»РЅРёС‚Рµ С€Р°Р±Р»РѕРЅ PR (РѕРЅ РєРѕСЂРѕС‚РєРёР№).
-- РЎРІСЏР¶РёС‚Рµ issue (`Closes #123`).
-- Р”Р»СЏ UI-РёР·РјРµРЅРµРЅРёР№ РїСЂРёР»РѕР¶РёС‚Рµ СЃРєСЂРёРЅС€РѕС‚С‹ РґРѕ/РїРѕСЃР»Рµ.
-- Р”Р»СЏ hardware-РёР·РјРµРЅРµРЅРёР№ вЂ” С„РѕС‚Рѕ Рё С‚РµСЃС‚-СЂРµРїРѕСЂС‚.
-- Р‘СѓРґСЊС‚Рµ С‚РµСЂРїРµР»РёРІС‹ СЃ СЂРµРІСЊСЋ.
+- Заполните шаблон PR (он короткий).
+- Свяжите issue (`Closes #123`).
+- Для UI-изменений приложите скриншоты до/после.
+- Для hardware-изменений — фото и тест-репорт.
+- Будьте терпеливы с ревью.
 
-## РЎС‚РёР»СЊ РєРѕРґР°
+## Стиль кода
 
-- Rust: `rustfmt`, `clippy::pedantic` РіРґРµ СЂР°Р·СѓРјРЅРѕ.
+- Rust: `rustfmt`, `clippy::pedantic` где разумно.
 - TypeScript: Prettier + ESLint.
 - Python: `ruff` + `black`.
-- Р‘РµР· СЌРјРѕРґР·Рё РІ РєРѕРґРµ Рё РєРѕРјРјРёС‚Р°С….
+- Без эмодзи в коде и коммитах.
 
-## РџРѕР»РёС‚РёРєР° РґРѕРєСѓРјРµРЅС‚Р°С†РёРё
+## Политика документации
 
-- РљР°Р¶РґР°СЏ РЅРѕРІР°СЏ С„РёС‡Р° вЂ” СЃ РґРѕРєСѓРјРµРЅС‚Р°С†РёРµР№ EN + RU. РўРѕР»СЊРєРѕ-Р°РЅРіР»РёР№СЃРєР°СЏ РґРѕРєСѓРјРµРЅС‚Р°С†РёСЏ РґР»СЏ user-facing С„РёС‡ РЅРµ РјРµСЂРґР¶РёС‚СЃСЏ. Р’РЅСѓС‚СЂРµРЅРЅРёРµ ADR вЂ” С‚РѕР»СЊРєРѕ EN.
-- ADR РёСЃРїРѕР»СЊР·СѓСЋС‚ [С€Р°Р±Р»РѕРЅ](docs/adr/_template.md).
-- API-РёР·РјРµРЅРµРЅРёСЏ РѕР±РЅРѕРІР»СЏСЋС‚ OpenAPI / gRPC СЃС…РµРјС‹ РІ С‚РѕРј Р¶Рµ PR.
+- Каждая новая фича — с документацией EN + RU. Только-английская документация для user-facing фич не мерджится. Внутренние ADR — только EN.
+- ADR используют [шаблон](docs/adr/_template.md).
+- API-изменения обновляют OpenAPI / gRPC схемы в том же PR.
 
 ## Code of Conduct
 
-РЈС‡Р°СЃС‚РІСѓСЏ, РІС‹ СЃРѕРіР»Р°С€Р°РµС‚РµСЃСЊ СЃ [Code of Conduct](CODE_OF_CONDUCT.md). Р‘СѓРґСЊС‚Рµ РґРѕР±СЂС‹, РєРѕРЅРєСЂРµС‚РЅС‹ Рё С‚РµСЂРїРµР»РёРІС‹.
+Участвуя, вы соглашаетесь с [Code of Conduct](CODE_OF_CONDUCT.md). Будьте добры, конкретны и терпеливы.
