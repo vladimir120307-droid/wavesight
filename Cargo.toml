@@ -52,9 +52,10 @@ rustfft = "6"
 num-complex = "0.4"
 
 # ML inference
-candle-core = "0.6"
-candle-nn = "0.6"
-candle-transformers = "0.6"
+# candle-* crates are added on demand once the inference layer wires actual
+# weights. Pinning them in the workspace before that point caused a rand /
+# rand_distr version conflict on the 0.6 release (transitive issue, fixed
+# upstream in 0.8). Re-introduce when we ship the first trained model.
 safetensors = "0.4"
 
 # Crypto
