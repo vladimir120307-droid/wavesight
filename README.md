@@ -1,21 +1,27 @@
 # WaveSight
 
-Open-source platform for WiFi-based sensing. Work in progress.
+Honest open-source WiFi & UWB sensing platform — see motion, breath and
+presence without cameras, without cloud, without hype.
 
-The goal is to turn ordinary WiFi (and later UWB) radio signals into
-useful spatial signals: presence, motion, breathing, fall detection,
-sleep staging. Local-first, no cloud.
+WaveSight turns ordinary WiFi (and later UWB) radio signals into spatial
+intelligence: who is in the room, are they breathing, did they fall, are
+they asleep. It runs on a small ESP32 mesh and processes everything on
+the edge.
 
-More to come.
-## Sketch
+## Why another wifi-sensing project
 
-Target hardware:
+The existing public projects in this space over-promise on marketing and
+under-deliver on physics. Single-antenna ESP32 cannot reconstruct a true
+MIMO array. So we are doing three things differently:
 
-- 2x ESP32-S3 nodes minimum (sniff CSI from the home WiFi router).
-- Later: ESP32-C5/C6 for true MIMO, DWM3000 UWB for angle-of-arrival.
+1. Real diversity — ESP32-C5 / C6 (WiFi 6 MIMO) plus optional UWB anchors.
+2. Honest metrics — every shipped number has a reproducible benchmark.
+3. Three vertical applications shipped in the same monorepo.
 
-Target verticals:
+## Status
 
-- Presence + occupancy for smart-home automations.
-- Fall detection for elderly people.
-- Sleep monitoring without a wearable.
+Alpha. See ROADMAP.md.
+
+## License
+
+MIT.
