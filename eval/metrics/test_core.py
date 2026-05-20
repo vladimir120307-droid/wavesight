@@ -1,11 +1,20 @@
-"""Sanity tests for the metrics module."""
+"""Sanity tests for the metrics module.
+
+Run with `pytest -q metrics/` from the `eval/` directory; the module is
+self-contained and does not require the `training/` package to be installed.
+"""
 
 from __future__ import annotations
+
+import sys
+from pathlib import Path
 
 import numpy as np
 import pytest
 
-from wavesight_eval.metrics.core import (
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from metrics.core import (  # noqa: E402
     binary_precision_recall,
     mean_absolute_error,
     pck_at_threshold,
