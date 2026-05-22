@@ -108,8 +108,8 @@ pub fn item_into_frame(
     boot_offset: DateTime<Utc>,
 ) -> Result<CsiFrame, WireError> {
     let (samples, subcarriers) = decode_iq(item)?;
-    let captured_at = boot_offset
-        + chrono::Duration::microseconds(i64::try_from(item.ts_us).unwrap_or(i64::MAX));
+    let captured_at =
+        boot_offset + chrono::Duration::microseconds(i64::try_from(item.ts_us).unwrap_or(i64::MAX));
     let metadata = FrameMetadata {
         node: node.clone(),
         captured_at,

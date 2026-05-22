@@ -23,16 +23,18 @@ pub fn migrate(conn: &Connection) -> rusqlite::Result<()> {
         .query_row(
             "SELECT value FROM schema_meta WHERE key = 'version'",
             [],
-            |row| row.get::<_, String>(0)?.parse().map_err(|_| {
-                rusqlite::Error::FromSqlConversionFailure(
-                    0,
-                    rusqlite::types::Type::Text,
-                    Box::new(std::io::Error::new(
-                        std::io::ErrorKind::InvalidData,
-                        "version not an int",
-                    )),
-                )
-            }),
+            |row| {
+                row.get::<_, String>(0)?.parse().map_err(|_| {
+                    rusqlite::Error::FromSqlConversionFailure(
+                        0,
+                        rusqlite::types::Type::Text,
+                        Box::new(std::io::Error::new(
+                            std::io::ErrorKind::InvalidData,
+                            "version not an int",
+                        )),
+                    )
+                })
+            },
         )
         .unwrap_or(0);
 
@@ -89,7 +91,11 @@ mod tests {
         migrate(&conn).unwrap();
         migrate(&conn).unwrap();
         let v: String = conn
-            .query_row("SELECT value FROM schema_meta WHERE key = 'version'", [], |r| r.get(0))
+            .query_row(
+                "SELECT value FROM schema_meta WHERE key = 'version'",
+                [],
+                |r| r.get(0),
+            )
             .unwrap();
         assert_eq!(v, SCHEMA_VERSION.to_string());
     }

@@ -127,7 +127,11 @@ mod tests {
     fn motion_triggers_presence() {
         let mut d = PresenceDetector::new(16, 0.05);
         for i in 0..32 {
-            let level = if i < 8 { 0.5 } else { 0.5 + 0.4 * (i as f32).sin() };
+            let level = if i < 8 {
+                0.5
+            } else {
+                0.5 + 0.4 * (i as f32).sin()
+            };
             d.step(&frame_with_amplitude(vec![level; 64]));
         }
         // After enough motion the detector should fire.
