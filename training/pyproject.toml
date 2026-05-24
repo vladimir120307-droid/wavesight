@@ -12,21 +12,26 @@ authors = [{ name = "Cyber_Lord", email = "vladimir120307@gmail.com" }]
 requires-python = ">=3.11"
 
 dependencies = [
+    "numpy>=1.26",
+    "click>=8.1",
+    "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+# Heavy ML deps are an optional extra so that CI (lint + smoke tests) does not
+# need to download GB of CUDA wheels. Install with `pip install -e .[ml]`
+# when you want to actually train.
+ml = [
     "torch>=2.4",
     "torchvision>=0.19",
     "lightning>=2.4",
-    "numpy>=1.26",
     "scipy>=1.13",
     "scikit-learn>=1.5",
     "pyarrow>=17",
     "datasets>=3.0",
     "tensorboard>=2.17",
     "wandb>=0.17",
-    "click>=8.1",
-    "pyyaml>=6",
 ]
-
-[project.optional-dependencies]
 dev = [
     "ruff>=0.6",
     "black>=24",
@@ -52,4 +57,7 @@ target-version = ["py311"]
 
 [tool.pytest.ini_options]
 addopts = "-q --strict-markers"
-testpaths = ["wavesight_train", "tests"]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["wavesight_train"]
