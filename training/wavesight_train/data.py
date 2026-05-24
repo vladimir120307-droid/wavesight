@@ -24,7 +24,7 @@ class CsiSample:
     """One labelled CSI sample."""
 
     amplitude: np.ndarray  # shape (n_subcarriers,)
-    phase: np.ndarray      # shape (n_subcarriers,)
+    phase: np.ndarray  # shape (n_subcarriers,)
     rssi_dbm: int
     label: dict[str, float | int | bool]
 
@@ -38,7 +38,9 @@ def stream_dataset(
     """Stream samples from a HuggingFace-hosted dataset shard."""
     if load_dataset is None:
         raise RuntimeError("install the 'datasets' package to use stream_dataset")
-    ds = load_dataset(name, split=split, streaming=True, cache_dir=str(cache_dir) if cache_dir else None)
+    ds = load_dataset(
+        name, split=split, streaming=True, cache_dir=str(cache_dir) if cache_dir else None
+    )
     for row in ds:
         yield CsiSample(
             amplitude=np.asarray(row["amplitude"], dtype=np.float32),
