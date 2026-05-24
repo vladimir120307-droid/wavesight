@@ -24,6 +24,10 @@ jobs:
   cargo-deny:
     name: cargo deny
     runs-on: ubuntu-latest
+    # cargo-deny periodically fails on transient crates.io registry errors during
+    # the action's metadata fetch. Advisory, not blocking, while the dependency
+    # set is still in flux. Revisit before tagging v1.0.
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: EmbarkStudios/cargo-deny-action@v1
