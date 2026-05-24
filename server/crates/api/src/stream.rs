@@ -30,10 +30,7 @@ pub struct StreamUpdate {
 }
 
 /// GET /api/v1/stream — WebSocket upgrade.
-pub async fn ws_handler(
-    ws: WebSocketUpgrade,
-    State(state): State<AppState>,
-) -> impl IntoResponse {
+pub async fn ws_handler(ws: WebSocketUpgrade, State(state): State<AppState>) -> impl IntoResponse {
     ws.on_upgrade(|socket| serve_client(socket, state))
 }
 

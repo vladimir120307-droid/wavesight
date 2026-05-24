@@ -44,7 +44,10 @@ async fn main() -> anyhow::Result<()> {
 
     let cli = Cli::parse();
     match cli.command {
-        Command::Serve { api: api_addr, ingest } => {
+        Command::Serve {
+            api: api_addr,
+            ingest,
+        } => {
             tracing::info!(%api_addr, %ingest, "wavesight edge server starting");
             let hub = IngestHub::default();
             let state = AppState::new(hub.clone());

@@ -16,8 +16,7 @@ impl LowPass {
     /// Construct a filter with the given cutoff and sample rate.
     #[must_use]
     pub fn new(cutoff_hz: f32, sample_rate_hz: f32) -> Self {
-        let alpha = 1.0
-            - (-2.0 * std::f32::consts::PI * cutoff_hz / sample_rate_hz).exp();
+        let alpha = 1.0 - (-2.0 * std::f32::consts::PI * cutoff_hz / sample_rate_hz).exp();
         Self {
             alpha,
             state: 0.0,

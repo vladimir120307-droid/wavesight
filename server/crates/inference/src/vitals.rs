@@ -43,7 +43,11 @@ impl Head for VitalsHead {
             hr_interval: placeholder_ci,
             br_bpm: None,
             br_interval: placeholder_ci,
-            uncertainty: if any_present { unsure } else { Uncertainty(1.0) },
+            uncertainty: if any_present {
+                unsure
+            } else {
+                Uncertainty(1.0)
+            },
         })
     }
 }

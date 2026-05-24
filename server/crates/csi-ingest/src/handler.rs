@@ -46,10 +46,7 @@ async fn healthz() -> &'static str {
     "ok"
 }
 
-async fn ws_handler(
-    ws: WebSocketUpgrade,
-    State(hub): State<IngestHub>,
-) -> impl IntoResponse {
+async fn ws_handler(ws: WebSocketUpgrade, State(hub): State<IngestHub>) -> impl IntoResponse {
     ws.on_upgrade(move |socket| serve_node(socket, hub))
 }
 
