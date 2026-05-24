@@ -24,7 +24,7 @@ version = "0.1.0-alpha.1"
 [workspace.dependencies]
 # Async runtime + HTTP
 tokio = { version = "1.39", features = ["full"] }
-axum = { version = "0.7", features = ["ws", "macros"] }
+axum = { version = "0.8", features = ["ws", "macros"] }
 tower = "0.5"
 tower-http = { version = "0.5", features = ["cors", "trace", "fs"] }
 hyper = { version = "1.4" }
