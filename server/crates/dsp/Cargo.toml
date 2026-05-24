@@ -21,6 +21,7 @@ thiserror.workspace = true
 [dev-dependencies]
 proptest.workspace = true
 criterion.workspace = true
+chrono.workspace = true
 
 [[bench]]
 name = "dsp_bench"
