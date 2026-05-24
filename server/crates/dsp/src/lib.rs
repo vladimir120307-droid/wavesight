@@ -6,6 +6,15 @@
 
 #![forbid(unsafe_code)]
 #![warn(clippy::pedantic)]
+#![allow(clippy::module_name_repetitions)]
+
+mod fft;
+mod filter;
+mod presence;
+
+pub use fft::{ampl_spectrum, AmplitudeSpectrum};
+pub use filter::LowPass;
+pub use presence::{PresenceDetector, PresenceState};
 
 use wavesight_core::{CsiFrame, DspFrame, Result, SubcarrierCount};
 
