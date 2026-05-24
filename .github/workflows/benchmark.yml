@@ -19,7 +19,7 @@ jobs:
       - name: run benches
         run: cargo bench -p dsp -- --output-format bencher | tee bench.txt
       - name: upload bench output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dsp-bench-${{ github.sha }}
           path: bench.txt
