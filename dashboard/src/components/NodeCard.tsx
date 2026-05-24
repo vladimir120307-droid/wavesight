@@ -1,3 +1,4 @@
+import { t, type Locale } from "../lib/i18n";
 import type { StreamUpdate } from "../lib/stream";
 import { Spectrogram } from "./Spectrogram";
 
@@ -5,6 +6,7 @@ interface Props {
   node: string;
   lastUpdate: StreamUpdate;
   history: StreamUpdate[];
+  locale: Locale;
 }
 
 function presenceFrom(history: StreamUpdate[]): { present: boolean; energy: number } {
@@ -22,7 +24,8 @@ function presenceFrom(history: StreamUpdate[]): { present: boolean; energy: numb
   return { present: energy > 0.04, energy };
 }
 
-export function NodeCard({ node, lastUpdate, history }: Props) {
+export function NodeCard({ node, lastUpdate, history, locale }: Props) {
+  const tr = t(locale);
   const { present, energy } = presenceFrom(history);
   return (
     <section className="panel space-y-3">
@@ -40,7 +43,7 @@ export function NodeCard({ node, lastUpdate, history }: Props) {
               present ? "bg-accent" : "bg-zinc-500"
             }`}
           />
-          {present ? "presence detected" : "quiet"}
+          {present ? tr.presenceDetected : tr.quiet}
         </span>
       </header>
 
@@ -48,15 +51,15 @@ export function NodeCard({ node, lastUpdate, history }: Props) {
 
       <dl className="grid grid-cols-3 gap-3 text-xs">
         <div>
-          <dt className="text-zinc-500">seq</dt>
+          <dt className="text-zinc-500">{tr.seq}</dt>
           <dd>{lastUpdate.sequence}</dd>
         </div>
         <div>
-          <dt className="text-zinc-500">rssi</dt>
+          <dt className="text-zinc-500">{tr.rssi}</dt>
           <dd>{lastUpdate.rssi_dbm} dBm</dd>
         </div>
         <div>
-          <dt className="text-zinc-500">energy</dt>
+          <dt className="text-zinc-500">{tr.energy}</dt>
           <dd>{energy.toFixed(3)}</dd>
         </div>
       </dl>
