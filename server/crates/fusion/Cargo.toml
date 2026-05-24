@@ -13,5 +13,6 @@ description = "Multi-node + multi-modal sensor fusion (EKF)."
 wavesight-core = { path = "../wavesight-core" }
 dsp = { path = "../dsp" }
 ndarray.workspace = true
+chrono.workspace = true
 tracing.workspace = true
 thiserror.workspace = true
