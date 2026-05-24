@@ -47,7 +47,7 @@ anyhow = "1"
 thiserror = "1"
 
 # DSP + math
-ndarray = { version = "0.16", features = ["serde"] }
+ndarray = { version = "0.17", features = ["serde"] }
 rustfft = "6"
 num-complex = "0.4"
 
