@@ -18,6 +18,11 @@ We target **100+ ADRs by v1.0**. This is not a vanity number — it is the trail
 | [0008](0008-ptp-time-sync.md) | IEEE 1588 PTP for inter-node time sync | accepted |
 | [0009](0009-ml-stack.md) | ML stack: PyTorch training, Candle inference | accepted |
 | [0010](0010-dashboard-stack.md) | Dashboard stack: Vite + React + TypeScript + Three.js | accepted |
+| [0011](0011-storage-retention.md) | Raw CSI retention is 24 hours, aggregates indefinite | accepted |
+| [0012](0012-mobile-flutter.md) | Flutter for the mobile app | accepted |
+| [0013](0013-bilingual-docs.md) | Documentation is bilingual EN + RU | accepted |
+| [0014](0014-mqtt-integration.md) | MQTT is a first-class integration target | accepted |
+| [0015](0015-fall-medical-disclaimer.md) | EldGuard is not a medical device | accepted |
 
 ## Writing a new ADR
 
