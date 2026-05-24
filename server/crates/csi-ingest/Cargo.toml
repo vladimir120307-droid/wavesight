@@ -7,17 +7,23 @@ license.workspace = true
 authors.workspace = true
 repository.workspace = true
 homepage.workspace = true
-description = "WebSocket / gRPC ingestion of CSI frames from sensing nodes."
+description = "WebSocket ingestion of CSI frames from sensing nodes."
 
 [dependencies]
 wavesight-core = { path = "../wavesight-core" }
 tokio.workspace = true
 axum.workspace = true
+tower.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 tracing.workspace = true
 anyhow.workspace = true
 thiserror.workspace = true
 bytes.workspace = true
-chacha20poly1305.workspace = true
 chrono.workspace = true
+base64 = "0.22"
+dashmap = "6"
+futures-util = "0.3"
+
+[dev-dependencies]
+tokio-tungstenite = "0.23"
