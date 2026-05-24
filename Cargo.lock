@@ -866,6 +866,7 @@ dependencies = [
 name = "dsp"
 version = "0.1.0-alpha.1"
 dependencies = [
+ "chrono",
  "criterion",
  "ndarray",
  "num-complex",
@@ -968,6 +969,7 @@ dependencies = [
 name = "fusion"
 version = "0.1.0-alpha.1"
 dependencies = [
+ "chrono",
  "dsp",
  "ndarray",
  "thiserror",
