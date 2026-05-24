@@ -27,3 +27,6 @@ futures-util = "0.3"
 
 [dev-dependencies]
 tokio-tungstenite = "0.23"
+serde_json.workspace = true
+futures-util = "0.3"
+base64 = "0.22"
