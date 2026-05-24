@@ -1,0 +1,9 @@
+# Partition table for WaveSight CSI node — 8 MB flash, OTA-capable.
+# Name,   Type, SubType, Offset,  Size,    Flags
+nvs,      data, nvs,     0x9000,  0x6000,
+phy_init, data, phy,     0xf000,  0x1000,
+factory,  app,  factory, 0x10000, 1M,
+ota_0,    app,  ota_0,   ,        1M,
+ota_1,    app,  ota_1,   ,        1M,
+ota_data, data, ota,     ,        0x2000,
+storage,  data, nvs,     ,        0x4000,
