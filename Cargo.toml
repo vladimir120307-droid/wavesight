@@ -61,7 +61,7 @@ safetensors = "0.4"
 chacha20poly1305 = "0.10"
 
 # Storage
-rusqlite = { version = "0.32", features = ["bundled"] }
+rusqlite = { version = "0.39", features = ["bundled"] }
 parquet = "53"
 arrow = "53"
 
