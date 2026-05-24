@@ -1,0 +1,28 @@
+# Scenario: subject sitting still at 2 m from a single node.
+# Targets: HR and BR mean absolute error vs Polar H10 reference.
+
+id: vitals-line-of-sight
+title:
+  en: "Vital signs, subject seated at 2 m, line-of-sight"
+  ru: "Vitals, испытуемый сидит на 2 м, прямая видимость"
+
+hardware:
+  nodes:
+    - { kind: esp32-s3, position: [0.0, 0.0, 1.2] }
+  ap: existing-home-wifi
+  ground_truth:
+    chest_strap: polar-h10
+    rgb_d_camera: realsense-d435
+
+protocol:
+  duration_s: 600
+  events:
+    - { at_s: 0,   type: subject_seated, distance_m: 2.0 }
+
+targets:
+  hr_mae_bpm: { max: 4.0, target: 2.0 }
+  br_mae_bpm: { max: 2.0, target: 1.0 }
+
+honest_caveats:
+  - "Subject must be at rest; motion contaminates the vital signal."
+  - "HR is harder than BR; expect HR MAE 2-3x worse than BR MAE."
