@@ -1,0 +1,34 @@
+# Pinned defaults for the WaveSight CSI node. Override via menuconfig if needed.
+
+CONFIG_IDF_TARGET="esp32s3"
+
+# 8 MB flash, dual app partitions for OTA
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_ESPTOOLPY_FLASHSIZE="8MB"
+
+# CPU at full 240 MHz — DSP-prep on the ESP needs headroom
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ=240
+
+# Enable WiFi CSI capture
+CONFIG_ESP_WIFI_CSI_ENABLED=y
+
+# Bigger TX buffer for WebSocket bursts of CSI frames
+CONFIG_LWIP_TCP_SND_BUF_DEFAULT=16384
+CONFIG_LWIP_TCP_WND_DEFAULT=16384
+
+# Compiler: optimise for size on non-critical paths, hot paths annotated
+CONFIG_COMPILER_OPTIMIZATION_SIZE=y
+CONFIG_COMPILER_OPTIMIZATION_ASSERTIONS_DISABLE=y
+
+# FreeRTOS: keep CSI ISR off core 0 — WiFi runs on core 0
+CONFIG_FREERTOS_UNICORE=n
+
+# Logging
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+CONFIG_LOG_COLORS=y
+
+# Disable bluetooth — we only do WiFi for now
+CONFIG_BT_ENABLED=n
