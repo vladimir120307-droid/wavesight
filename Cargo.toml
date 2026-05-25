@@ -13,7 +13,9 @@ members = [
 
 [workspace.package]
 edition = "2021"
-rust-version = "1.81"
+# Bumped from 1.78 → 1.81 (clap_builder 4.6) → 1.85 (transitive indexmap 2.14
+# requires the edition2024 cargo feature, stable since Rust 1.85).
+rust-version = "1.85"
 license = "MIT"
 authors = ["Cyber_Lord <vladimir120307@gmail.com>"]
 repository = "https://github.com/vladimir120307-droid/wavesight"

@@ -59,14 +59,15 @@ jobs:
       - run: cargo test --workspace --all-features
 
   msrv:
-    name: msrv (1.81)
+    name: msrv (1.85)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.81
+      - uses: dtolnay/rust-toolchain@1.85
       - uses: Swatinem/rust-cache@v2
-      # MSRV target bumped from 1.78 → 1.81 after transitive deps (clap_builder 4.6)
-      # raised their floor. We will keep rust-version in workspace metadata in sync.
+      # MSRV history: 1.78 → 1.81 (clap_builder 4.6) → 1.85 (indexmap 2.14 needs
+      # the edition2024 cargo feature, stable since Rust 1.85). Keep workspace
+      # rust-version metadata in sync with this number.
       - run: cargo check --workspace --all-targets
 
   docs:
